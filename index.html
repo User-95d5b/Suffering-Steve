@@ -40,7 +40,7 @@
     <body>
           <!-- Audio element -->
     <audio id="bg-music" loop>
-      <source src="INSERT SOURCE PATH" type="audio/mpeg">
+      <source src="https://github.com/User-95d5b/Suffering-Steve/raw/refs/heads/main/Wingstop%20hell.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
 
@@ -190,7 +190,35 @@ animation="
                   ></a-sphere>
 
         </a-scene>
-       
+           <!-- JavaScript -->
+    <script>
+      const music = document.getElementById('bg-music');
+      const startBtn = document.getElementById('start-button');
+      const countdownEl = document.getElementById('countdown');
+
+      startBtn.addEventListener('click', () => {
+        startBtn.style.display = 'none';
+        startCountdown();
+      });
+
+      function startCountdown() {
+        let count = 3;
+        countdownEl.style.display = 'block';
+        countdownEl.textContent = count;
+
+        const interval = setInterval(() => {
+          count--;
+          if (count > 0) {
+            countdownEl.textContent = count;
+          } else {
+            clearInterval(interval);
+            countdownEl.style.display = 'none';
+            music.play();
+          }
+        }, 1000);
+      }
+    </script>
+
     </body>
 </html>
 //kill me please
